@@ -1,2 +1,8 @@
 # NaiveBayesClassificationAlgorithm
 Naive Bayesian Classifier--implementation and evaluation on Adult Dataset from UC Irvine Repository
+code implements two main evaluation strategies to assess the performance of the Naive Bayes classifier with evaluation metrics like accuracy, precision, recall value, F1 value & confusion matrix with a train-dev-test split strategy and K-fold cross-validation.
+Train-Dev-Test Split Evaluation:
+I’ve split the source data into 3 subsets for Training (70%), development (20% - to perform performance improvements) and test (to test the model). Using training data, I’ve calculated Likelihood & Class probabilities using training dataset and used them to calculate P(features/class label) , for the provided features, Bayes Implementation will refer to the conditional & class probability for both classes and returns the class label with maximum probability. Laplace smoothing is applied on the likelihood probabilities dictionary to handle 0 probability scenarios as we’ll multiply it for calculating final probability of class label.
+
+K-Fold Cross-Validation:
+K-fold cross-validation is used to assess the model's performance by dividing the dataset into K subsets (folds). The model is trained and evaluated K times, with each fold serving as the test set once and the remaining K-1 folds used for training. In the provided code, K-fold cross-validation is used to assess the model's generalization performance, and the average accuracy over the K folds is reported. This approach provides a more robust estimate of how well the model is likely to perform on unseen data compared to a single train-dev-test split.
